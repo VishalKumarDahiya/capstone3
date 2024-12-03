@@ -1,0 +1,36 @@
+<%- include("partials/header.ejs") %>
+
+<h1 >My Blogs</h1>
+
+<% if(!blogs.length){%>
+    <div class="blogs">
+    <p class="blog-content">No blogs till now, You can create one.</p>
+    </div>
+<%} %>
+
+<% blogs.forEach((blog, index)=>{%>
+    <div class="blogs">
+        <h2 class="blog-heading"><%= blog.Heading %></h2>
+        <p class="blog-content"><%= blog.Content %></p>
+
+        <div class="buttons">
+            <form action="/delete" method="POST" style="display:inline;">
+                <!-- Hidden input to pass the blog index -->
+                <input type="hidden" name="id" value="<%= index %>">
+                <button type="submit" class="Delete">Delete</button>
+            </form>
+
+            <form action="/edit" method="POST" style="display:inline;">
+                <input type="hidden" name="id" value="<%= index %>">
+                <button type="submit" class="Edit">Edit</button>
+            </form>
+        </div>
+    </div>
+    <hr>
+
+<% }) %> 
+
+
+
+
+<%- include("partials/footer.ejs") %>

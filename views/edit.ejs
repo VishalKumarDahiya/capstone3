@@ -1,0 +1,17 @@
+<%- include("partials/header.ejs") %>
+
+<h1>Update Your Blog</h1>
+
+<form action="/update" method="POST">
+    <label for="Heading"> Blog Heading</label>
+    <input type="text" class="Heading" name="Heading" value="<%= blog.Heading %>"><br>
+    <label for="Content"> Update your blog here </label>
+    <!-- <input type="text" id="Content" name="Content" value="<%= blog.Content %>"><br> -->
+    <textarea name="Content" id="Content"><%= blog.Content %></textarea>
+    <input type="submit" name="Submit" id="Submit" value="Submit">
+    <input type="hidden" name="id" value="<%=id %>">
+    
+</form>
+
+
+<%- include("partials/footer.ejs") %>
